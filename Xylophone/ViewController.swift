@@ -11,8 +11,13 @@ import AVFoundation
 
 class ViewController: UIViewController {
     var player: AVAudioPlayer?
-
+    
     @IBAction func keyPressed(_ sender: UIButton) {
+        sender.layer.opacity /= 2
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            sender.layer.opacity = 1
+        }
+        
         playSound(for: sender.currentTitle)
     }
     
